@@ -55,18 +55,18 @@ $(document).ready(()=>{
 	    else {$("#timer").remove();} 
 	},1000);
 
-	let yatarget = 'order'
+	let yatarget = 'stock'
 
 	$('.product__btn').click(function(event) {
 		/// Баланс водопотребления и водоотведения
 		let product = $(this).data('product')
 		$('#product-input').val(product)
-		//yatarget = 'order'
+		yatarget = 'order'
 		$('#modal__product').openModal()
 	})
 
 	$('.order').click(function(event) {
-		//yatarget = 'advice'
+		yatarget = 'advice'
 		$('#modal__order').openModal()
 	})
 
@@ -130,8 +130,8 @@ $(document).ready(()=>{
 	           } else {
            			$('#modal__ok').openModal()
 	           }
-	           yaCounter51663104.reachGoal(yatarget)
-	           yatarget = 'order'
+	           yaCounter51667697.reachGoal(yatarget)
+	           yatarget = 'stock'
 	        })
 	        .always(function() {
 			   //btn.val(btnText)
