@@ -133,14 +133,14 @@
     width 100%
     // padding 200px 0
     text-align center
-    
-    background #63b1ff url('../img/header-img.png')no-repeat bottom right 15vw
+    background #a2a2a2 url('../img/header-img.png')no-repeat center bottom
     padding 100px 0
 
 .offer
     text-align left !important
     position relative
     &__text
+        text-shadow 0 0 10px rgba(7,7,7,.7)
         // &:after
         //     content " "
         //     position absolute
@@ -275,8 +275,10 @@
     text-align center
     font-weight 300
     margin-bottom 20px
+    min-height 250px
     &__title
         font-size 20px
+        line-height 1.6em
         color #000
         margin-bottom 20px
     &__price
@@ -698,17 +700,19 @@
         font-size 16px
         color #0f0f0f
         line-height 1.5em
+        ul
+            padding-left 35px
         p
             margin-bottom 15px
             position relative
             padding-left 10px
-            &:before
-                content '-'
-                display block
-                width 10px
-                height 10px
-                position absolute
-                left -5px
+            // &:before
+            //     content '-'
+            //     display block
+            //     width 10px
+            //     height 10px
+            //     position absolute
+            //     left -5px
                  
     &__icon
         display block
