@@ -116,7 +116,7 @@ $(document).ready(()=>{
 	        var form = $(form);
 
 	        if( form.children("[name='c1']").val() ){
-	        	let text = ` ${form.children("[name='order']").val()} - Диаметр: ${form.children("[name='c1']").val()}  Доинна : ${form.children("[name='c2']").val()} `
+	        	let text = ` ${form.children("[name='order']").val()} - Диаметр: ${form.children("[name='c1']").val()}  Длина : ${form.children("[name='c2']").val()} `
 	        	form.children("[name='order']").val(text)
 	        }
 

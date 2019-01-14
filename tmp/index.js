@@ -121,7 +121,7 @@ $(document).ready(function () {
 				var form = $(form);
 
 				if (form.children("[name='c1']").val()) {
-					var text = ' ' + form.children("[name='order']").val() + ' - \u0414\u0438\u0430\u043C\u0435\u0442\u0440: ' + form.children("[name='c1']").val() + '  \u0414\u043E\u0438\u043D\u043D\u0430 : ' + form.children("[name='c2']").val() + ' ';
+					var text = ' ' + form.children("[name='order']").val() + ' - \u0414\u0438\u0430\u043C\u0435\u0442\u0440: ' + form.children("[name='c1']").val() + '  \u0414\u043B\u0438\u043D\u0430 : ' + form.children("[name='c2']").val() + ' ';
 					form.children("[name='order']").val(text);
 				}
 
