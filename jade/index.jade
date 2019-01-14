@@ -79,17 +79,37 @@ body.page
       .offer 
         .offer__text.start-animate
           |Горизонтально направленное бурение
-        .offer__action.order.start-animate(style="animation-delay: .2s") Записаться на консультацию 
+        .offer__action.order.start-animate(style="animation-delay: .2s") Пригласить инженера на объект
 
+
+  +b.formm
+      .container
+        +e.title Калькулятор расчета стоимости услуг ГНБ
+        +e.text Укажите основные параметры проекта: диаметр трубы и предполагаемую длину прокола,<br>а также ваш номер телефона для получения расчета:
+        +b.form
+          form.ajax
+            input(placeholder='Введите Ваше имя' name='name').input.input_type_name
+            input(placeholder='Введите Ваш телефон' name='phone').input.input_type_phone
+            input(placeholder='Диаметр трубы, мм.' name='c1').input.input_type_mini
+            input(placeholder='Доинна прокола, п.м.' name='c2').input.input_type_mini
+            input(type='hidden', name='url', value="<?echo $url?>")
+            input(type='hidden', name='utm', value="<?echo $utm?>")
+            input(type='hidden', name='utm_term', value="<?echo $utm_term?>")
+            input(type='hidden', name='utm_campaign', value="<?echo $utm_campaign?>")
+            input(type='hidden', name='utm_source', value="<?echo $utm_source?>")
+            input(type='hidden', name='utm_medium', value="<?echo $utm_medium?>")
+            input(type='hidden', name='utm_content', value="<?echo $utm_content?>")
+            input(type='hidden', name='order', value='Горизонтально направленное бурение')
+            input(type='submit' value='Отправить').form__btn
 
   .container
     .triggers
       .row
-        +b.col._lg_2._md_2._sm_6._xs_12
+        +b.col._lg_3._md_3._sm_6._xs_12
           .triggers__items
           img(src='img/triggers__img1.png').triggers__img
           .triggers__text Опыт работы<br>более 6 лет
-        +b.col._lg_2._md_2._sm_6._xs_12
+        +b.col._lg_3._md_3._sm_6._xs_12
           .triggers__items
           img(src='img/triggers__img6.png').triggers__img
           .triggers__text Цены ниже<br>среднерыночных<br>на 7-12%
@@ -97,10 +117,27 @@ body.page
           .triggers__items
           img(src='img/triggers__img5.png').triggers__img
           .triggers__text Применяем<br>сертифицированные<br>материалы
-        +b.col._lg_4._lg-offset_1._md_4._sm_12._xs_12
-          .about ООО «БК Инвент» — общество профессионалов, использующих в своей практике инновационный подход к решению как проектных, так и инженерно-строительных задач.
+        +b.col._lg_3._md_3._sm_6._xs_12
+          .triggers__items
+          img(src='img/triggers__img10.png').triggers__img
+          .triggers__text Проколы диаметром<br>от 25мм до 900 мм
+        +b.col._lg_3._md_3._sm_6._xs_12
+          .triggers__items
+          img(src='img/triggers__img12.png').triggers__img
+          .triggers__text Без выхода на поверхность<br>до 300 м
+        +b.col._lg_3._md_3._sm_6._xs_12
+          .triggers__items
+          img(src='img/triggers__img3.png').triggers__img
+          .triggers__text Возможность прокола<br>из колодца в колодец
+        +b.col._lg_3._md_3._sm_6._xs_12
+          .triggers__items
+          img(src='img/triggers__img11.png').triggers__img
+          .triggers__text Используем технику <br>с разными возможностями
+        +b.col._lg_3._md_3._sm_6._xs_12
+          .triggers__items
+          img(src='img/triggers__img4.png').triggers__img
+          .triggers__text Предоставляем всю документацию, согласно НОССТРОЙ
 
-  //- +b.textt
   //-   .container
   //-     +e.title Что такое паспорт водного хозяйства? 
   //-     +e.text 
@@ -158,82 +195,145 @@ body.page
 
   
   +b.info
-    +e.icon
-    +e.title
-    +e.text
-      p ГНБ является альтернативой траншейному методу прокладывания коммуникаций. Такая методика имеет ряд преимуществ, которые заключаются в следующем:
-      ul
-        li
-          | Объем земляных работ минимален, это ускоряет процесс работ и снижает финансовые издержки;
-        li
-          | Возможность прокладывания коммуникаций в любых условиях: стесненная часть города, под водоемом, дорогой, жд путями и т.д.
-        li
-          | Не нарушается дорожное покрытие, благоустройстве поверхности и т.д., что исключает издержки на восстановление.
-        li
-          | Технология ГНБ не требует привлечения большого количества техники, бригады. А установки могут работать автономно, что не требует дополнительного источника питания и т.д.
-      p Таким образом, прокладывание коммуникаций методом ГНБ является современным высокотехнологичным методом, которое позволяет сократить как временные, так и финансовые издержки на строительство.
+    +e.container
+        +e.icon
+        +e.title
+        +e.text
+          p ГНБ является альтернативой траншейному методу прокладывания коммуникаций. Такая методика имеет ряд преимуществ, которые заключаются в следующем:
+          ul
+            li
+              | Объем земляных работ минимален, это ускоряет процесс работ и снижает финансовые издержки;
+            li
+              | Возможность прокладывания коммуникаций в любых условиях: стесненная часть города, под водоемом, дорогой, жд путями и т.д.
+            li
+              | Не нарушается дорожное покрытие, благоустройстве поверхности и т.д., что исключает издержки на восстановление.
+            li
+              | Технология ГНБ не требует привлечения большого количества техники, бригады. А установки могут работать автономно, что не требует дополнительного источника питания и т.д.
+          p Таким образом, прокладывание коммуникаций методом ГНБ является современным высокотехнологичным методом, которое позволяет сократить как временные, так и финансовые издержки на строительство.
 
 
 
-  .title Что делаем?
+  .title КАКИЕ УСЛУГИ ОКАЗЫВАЕМ?
   .container
     .row
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка водопровода
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка водопровода')
-            | Заказать
+            img(src="img/product1.jpg").product__img
+            .product__bg
+                .product__text
+                    .product__title
+                        | Прокладка водопровода
+                    .product__btn(data-product='Горизонтально направленное бурение. Прокладка водопровода')
+                        | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка газопровода
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка газопровода')
-            | Заказать
+            img(src="img/product2.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка газопровода
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка газопровода')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка линий электроснабжения
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
-            | Заказать
+            img(src="img/product3.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка линий электроснабжения
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка линий электроснабжения
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
-            | Заказать
+            img(src="img/product4.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка линий электроснабжения
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка канализации
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка канализации')
-            | Заказать
+            img(src="img/product5.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка канализации
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка канализации')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка трубопровода теплоснабжения
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения')
-            | Заказать
+            img(src="img/product6.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка трубопровода теплоснабжения
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Прокладка футляров при строительстве коммуникаций
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций')
-            | Заказать
+            img(src="img/product7.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Прокладка футляров при строительстве коммуникаций
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций')
+                    | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
-          .product__title
-            | Формирование пакета документов для сдачи объекта
-          .product__price.product__price_old.
-          .product__btn(data-product='Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта')
-            | Заказать
+            img(src="img/product8.jpg").product__img
+            .product__bg
+                .product__text
+                  .product__title
+                    | Формирование пакета документов для сдачи объекта
+                  .product__price.product__price_old.
+                  .product__btn(data-product='Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта')
+                    | Заказать
+
+
+  .reviews
+      .container
+        .reviews__title Выполненные работы
+        div(style="text-align: center;max-width: 1040px;margin: auto;")
+          +b.zoom(data-img="case1.jpg")
+            img(src="img/case1_mini.jpg")
+            +e.icon
+            .reviews__text Прокладка водоотведения,<br> г.Ростов-на-Дону,<br>ул. Луговая, 7
+          +b.zoom(data-img="case2.jpg")
+            img(src="img/case2_mini.jpg")
+            +e.icon
+            .reviews__text Прокладка водоснабжения, <br>г.Ростов-на-Дону,<br> ул. Республиканская, 181
+          +b.zoom(data-img="case3.jpg")
+            img(src="img/case3_mini.jpg")
+            +e.icon
+            .reviews__text Прокладка водоотведения,<br> г.Ростов-на-Дону, <br>ул. Привокзальная, 61
+          +b.zoom(data-img="case5.jpg")
+            img(src="img/case5_mini.jpg")
+            +e.icon
+            .reviews__text Прокладка водовода, <br>ул. Скачкова, ЖК Акварель
+          +b.zoom(data-img="case7.jpg")
+            img(src="img/case7_mini.jpg")
+            +e.icon
+            .reviews__text Устройство канализации,<br>ул.Неклиновская, 18
+          +b.zoom(data-img="case8.jpg")
+            img(src="img/case8_mini.jpg")
+            +e.icon
+            .reviews__text Устройство водопровода, <br>ЖК Военвед Сити
+          +b.zoom(data-img="case9.jpg")
+            img(src="img/case9_mini.jpg")
+            +e.icon
+            .reviews__text  Врезка в трубу диаметром<br> 300 под давлением, <br>ул. Витебская, 12
+          +b.zoom(data-img="case11.jpg")
+            img(src="img/case11_mini.jpg")
+            +e.icon
+            .reviews__text Устройство водопровода, <br>ул. Пескова, 87 убрать
+
 
   .container
     +b.title Допуски СРО
@@ -261,8 +361,8 @@ body.page
 
           
   .questions
-    .questions__title Остались вопросы?
-    | Задайте их нашему специалисту!
+    .questions__title Бесплатная консультация эксперта по ГНБ
+    div(style="max-width: 800px; margin: auto") Оставьте заявку и наш эксперт свяжется с вами, и расскажет про все преимущества метода горизонтально направленного бурения применительно к решению вашей задачи!
   .btn.order Получить бесплатную консультацию
   .map#map
   .footer

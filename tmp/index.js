@@ -65,6 +65,12 @@ $(document).ready(function () {
 
 	var yatarget = 'stock';
 
+	$('.product').hover(function () {
+		$(this).children('.product__img').addClass('product__img_hover');
+	}, function () {
+		$(this).children('.product__img').removeClass('product__img_hover');
+	});
+
 	$('.product__btn').click(function (event) {
 		/// Баланс водопотребления и водоотведения
 		var product = $(this).data('product');
@@ -112,8 +118,14 @@ $(document).ready(function () {
 
 				$('.loader_submit').addClass('loader_active');
 
-				var form = $(form),
-				    str = form.serialize();
+				var form = $(form);
+
+				if (form.children("[name='c1']").val()) {
+					var text = ' ' + form.children("[name='order']").val() + ' - \u0414\u0438\u0430\u043C\u0435\u0442\u0440: ' + form.children("[name='c1']").val() + '  \u0414\u043E\u0438\u043D\u043D\u0430 : ' + form.children("[name='c2']").val() + ' ';
+					form.children("[name='order']").val(text);
+				}
+
+				var str = form.serialize();
 
 				var btn = form.children("[type='submit']");
 				//let btnText = btn.val()

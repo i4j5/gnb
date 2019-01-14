@@ -88,18 +88,43 @@ $utm =  $_SERVER["QUERY_STRING"];
     <div class="container">
       <div class="offer"> 
         <div class="offer__text start-animate">Горизонтально направленное бурение</div>
-        <div style="animation-delay: .2s" class="offer__action order start-animate">Записаться на консультацию </div>
+        <div style="animation-delay: .2s" class="offer__action order start-animate">Пригласить инженера на объект</div>
+      </div>
+    </div>
+  </div>
+  <div class="formm">
+    <div class="container">
+      <div class="formm__title">Калькулятор расчета стоимости услуг ГНБ
+      </div>
+      <div class="formm__text">Укажите основные параметры проекта: диаметр трубы и предполагаемую длину прокола,<br>а также ваш номер телефона для получения расчета:
+      </div>
+      <div class="form">
+        <form class="ajax">
+          <input placeholder="Введите Ваше имя" name="name" class="input input_type_name"/>
+          <input placeholder="Введите Ваш телефон" name="phone" class="input input_type_phone"/>
+          <input placeholder="Диаметр трубы, мм." name="c1" class="input input_type_mini"/>
+          <input placeholder="Доинна прокола, п.м." name="c2" class="input input_type_mini"/>
+          <input type="hidden" name="url" value="&lt;?echo $url?&gt;"/>
+          <input type="hidden" name="utm" value="&lt;?echo $utm?&gt;"/>
+          <input type="hidden" name="utm_term" value="&lt;?echo $utm_term?&gt;"/>
+          <input type="hidden" name="utm_campaign" value="&lt;?echo $utm_campaign?&gt;"/>
+          <input type="hidden" name="utm_source" value="&lt;?echo $utm_source?&gt;"/>
+          <input type="hidden" name="utm_medium" value="&lt;?echo $utm_medium?&gt;"/>
+          <input type="hidden" name="utm_content" value="&lt;?echo $utm_content?&gt;"/>
+          <input type="hidden" name="order" value="Горизонтально направленное бурение"/>
+          <input type="submit" value="Отправить" class="form__btn"/>
+        </form>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="triggers">
       <div class="row">
-        <div class="col col_lg_2 col_md_2 col_sm_6 col_xs_12">
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
           <div class="triggers__items"></div><img src="img/triggers__img1.png" class="triggers__img"/>
           <div class="triggers__text">Опыт работы<br>более 6 лет</div>
         </div>
-        <div class="col col_lg_2 col_md_2 col_sm_6 col_xs_12">
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
           <div class="triggers__items"></div><img src="img/triggers__img6.png" class="triggers__img"/>
           <div class="triggers__text">Цены ниже<br>среднерыночных<br>на 7-12%</div>
         </div>
@@ -107,8 +132,25 @@ $utm =  $_SERVER["QUERY_STRING"];
           <div class="triggers__items"></div><img src="img/triggers__img5.png" class="triggers__img"/>
           <div class="triggers__text">Применяем<br>сертифицированные<br>материалы</div>
         </div>
-        <div class="col col_lg_4 col_lg-offset_1 col_md_4 col_sm_12 col_xs_12">
-          <div class="about">ООО «БК Инвент» — общество профессионалов, использующих в своей практике инновационный подход к решению как проектных, так и инженерно-строительных задач.</div>
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
+          <div class="triggers__items"></div><img src="img/triggers__img10.png" class="triggers__img"/>
+          <div class="triggers__text">Проколы диаметром<br>от 25мм до 900 мм</div>
+        </div>
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
+          <div class="triggers__items"></div><img src="img/triggers__img12.png" class="triggers__img"/>
+          <div class="triggers__text">Без выхода на поверхность<br>до 300 м</div>
+        </div>
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
+          <div class="triggers__items"></div><img src="img/triggers__img3.png" class="triggers__img"/>
+          <div class="triggers__text">Возможность прокола<br>из колодца в колодец</div>
+        </div>
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
+          <div class="triggers__items"></div><img src="img/triggers__img11.png" class="triggers__img"/>
+          <div class="triggers__text">Используем технику <br>с разными возможностями</div>
+        </div>
+        <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
+          <div class="triggers__items"></div><img src="img/triggers__img4.png" class="triggers__img"/>
+          <div class="triggers__text">Предоставляем всю документацию, согласно НОССТРОЙ</div>
         </div>
       </div>
     </div>
@@ -155,78 +197,158 @@ $utm =  $_SERVER["QUERY_STRING"];
     </div>
   </div>
   <div class="info">
-    <div class="info__icon">
-    </div>
-    <div class="info__title">
-    </div>
-    <div class="info__text">
-      <p>ГНБ является альтернативой траншейному методу прокладывания коммуникаций. Такая методика имеет ряд преимуществ, которые заключаются в следующем:</p>
-      <ul>
-        <li>Объем земляных работ минимален, это ускоряет процесс работ и снижает финансовые издержки;</li>
-        <li>Возможность прокладывания коммуникаций в любых условиях: стесненная часть города, под водоемом, дорогой, жд путями и т.д.</li>
-        <li>Не нарушается дорожное покрытие, благоустройстве поверхности и т.д., что исключает издержки на восстановление.</li>
-        <li>Технология ГНБ не требует привлечения большого количества техники, бригады. А установки могут работать автономно, что не требует дополнительного источника питания и т.д.</li>
-      </ul>
-      <p>Таким образом, прокладывание коммуникаций методом ГНБ является современным высокотехнологичным методом, которое позволяет сократить как временные, так и финансовые издержки на строительство.</p>
+    <div class="info__container">
+      <div class="info__icon">
+      </div>
+      <div class="info__title">
+      </div>
+      <div class="info__text">
+        <p>ГНБ является альтернативой траншейному методу прокладывания коммуникаций. Такая методика имеет ряд преимуществ, которые заключаются в следующем:</p>
+        <ul>
+          <li>Объем земляных работ минимален, это ускоряет процесс работ и снижает финансовые издержки;</li>
+          <li>Возможность прокладывания коммуникаций в любых условиях: стесненная часть города, под водоемом, дорогой, жд путями и т.д.</li>
+          <li>Не нарушается дорожное покрытие, благоустройстве поверхности и т.д., что исключает издержки на восстановление.</li>
+          <li>Технология ГНБ не требует привлечения большого количества техники, бригады. А установки могут работать автономно, что не требует дополнительного источника питания и т.д.</li>
+        </ul>
+        <p>Таким образом, прокладывание коммуникаций методом ГНБ является современным высокотехнологичным методом, которое позволяет сократить как временные, так и финансовые издержки на строительство.</p>
+      </div>
     </div>
   </div>
-  <div class="title">Что делаем?</div>
+  <div class="title">КАКИЕ УСЛУГИ ОКАЗЫВАЕМ?</div>
   <div class="container">
     <div class="row">
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка водопровода</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка водопровода" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product1.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка водопровода</div>
+              <div data-product="Горизонтально направленное бурение. Прокладка водопровода" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка газопровода</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка газопровода" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product2.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка газопровода</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка газопровода" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка линий электроснабжения</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product3.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка линий электроснабжения</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка линий электроснабжения</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product4.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка линий электроснабжения</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка канализации</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка канализации" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product5.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка канализации</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка канализации" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка трубопровода теплоснабжения</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product6.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка трубопровода теплоснабжения</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Прокладка футляров при строительстве коммуникаций</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product7.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Прокладка футляров при строительстве коммуникаций</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций" class="product__btn">Заказать</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
-        <div class="product">
-          <div class="product__title">Формирование пакета документов для сдачи объекта</div>
-          <div class="product__price product__price_old"></div>
-          <div data-product="Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта" class="product__btn">Заказать</div>
+        <div class="product"><img src="img/product8.jpg" class="product__img"/>
+          <div class="product__bg">
+            <div class="product__text">
+              <div class="product__title">Формирование пакета документов для сдачи объекта</div>
+              <div class="product__price product__price_old"></div>
+              <div data-product="Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта" class="product__btn">Заказать</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews">
+    <div class="container">
+      <div class="reviews__title">Выполненные работы</div>
+      <div style="text-align: center;max-width: 1040px;margin: auto;">
+        <div data-img="case1.jpg" class="zoom"><img src="img/case1_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Прокладка водоотведения,<br> г.Ростов-на-Дону,<br>ул. Луговая, 7</div>
+        </div>
+        <div data-img="case2.jpg" class="zoom"><img src="img/case2_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Прокладка водоснабжения, <br>г.Ростов-на-Дону,<br> ул. Республиканская, 181</div>
+        </div>
+        <div data-img="case3.jpg" class="zoom"><img src="img/case3_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Прокладка водоотведения,<br> г.Ростов-на-Дону, <br>ул. Привокзальная, 61</div>
+        </div>
+        <div data-img="case5.jpg" class="zoom"><img src="img/case5_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Прокладка водовода, <br>ул. Скачкова, ЖК Акварель</div>
+        </div>
+        <div data-img="case7.jpg" class="zoom"><img src="img/case7_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Устройство канализации,<br>ул.Неклиновская, 18</div>
+        </div>
+        <div data-img="case8.jpg" class="zoom"><img src="img/case8_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Устройство водопровода, <br>ЖК Военвед Сити</div>
+        </div>
+        <div data-img="case9.jpg" class="zoom"><img src="img/case9_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text"> Врезка в трубу диаметром<br> 300 под давлением, <br>ул. Витебская, 12</div>
+        </div>
+        <div data-img="case11.jpg" class="zoom"><img src="img/case11_mini.jpg"/>
+          <div class="zoom__icon">
+          </div>
+          <div class="reviews__text">Устройство водопровода, <br>ул. Пескова, 87 убрать</div>
         </div>
       </div>
     </div>
@@ -262,7 +384,8 @@ $utm =  $_SERVER["QUERY_STRING"];
     </div>
   </div>
   <div class="questions">
-    <div class="questions__title">Остались вопросы?</div>Задайте их нашему специалисту!
+    <div class="questions__title">Бесплатная консультация эксперта по ГНБ</div>
+    <div style="max-width: 800px; margin: auto">Оставьте заявку и наш эксперт свяжется с вами, и расскажет про все преимущества метода горизонтально направленного бурения применительно к решению вашей задачи!</div>
   </div>
   <div class="btn order">Получить бесплатную консультацию</div>
   <div id="map" class="map"></div>

@@ -57,6 +57,13 @@ $(document).ready(()=>{
 
 	let yatarget = 'stock'
 
+
+	$('.product').hover(function() {
+		$(this).children('.product__img').addClass('product__img_hover')
+	}, function() {
+		$(this).children('.product__img').removeClass('product__img_hover')
+	});
+
 	$('.product__btn').click(function(event) {
 		/// Баланс водопотребления и водоотведения
 		let product = $(this).data('product')
@@ -106,8 +113,14 @@ $(document).ready(()=>{
 
 	        $('.loader_submit').addClass('loader_active')
 
-	        var form = $(form),
-	        str = form.serialize()
+	        var form = $(form);
+
+	        if( form.children("[name='c1']").val() ){
+	        	let text = ` ${form.children("[name='order']").val()} - Диаметр: ${form.children("[name='c1']").val()}  Доинна : ${form.children("[name='c2']").val()} `
+	        	form.children("[name='order']").val(text)
+	        }
+
+	        let str = form.serialize()
 
 	        let btn = form.children("[type='submit']")
 	        //let btnText = btn.val()
