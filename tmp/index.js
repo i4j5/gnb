@@ -79,6 +79,13 @@ $(document).ready(function () {
 		$('#modal__product').openModal();
 	});
 
+	$('.gnb .btn').click(function (event) {
+		var product = $(this).data('product');
+		$('#product-input').val(product);
+		yatarget = 'order';
+		$('#modal__product').openModal();
+	});
+
 	$('.order').click(function (event) {
 		yatarget = 'advice';
 		$('#modal__order').openModal();

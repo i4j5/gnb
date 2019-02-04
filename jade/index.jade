@@ -8,6 +8,20 @@ include ../node_modules/bemto.jade/bemto
   $utm_term = '-';
   $utm_content = '-';
 
+  $cities = [
+    'rostov' => ['Ростовская область','в Ростовской области'],
+    'stavropol' => ['Ставропольский край','в Ставропольском крае'],
+    'krasnodar' => ['Краснодарский край','в Краснодарском крае'],
+    'crimea' => ['Крым','в Крыму'],
+    'adygeya' => ['республика Адыгея','в республике Адыгея'],
+    'karachaycherkess' => ['республика Карачаево-Черкесская','в республике Карачаево-Черкесская'],
+    'kabardinobalkarian' => ['республика Кабардино-Балкарская','в республике Кабардино-Балкарская'],
+    'kalmykia' => ['республика Калмыкия','в республике Калмыкия'],
+    'volgograd' => ['Волгоградская область','в Волгоградской области'],
+    'voronezh ' => ['Воронежская область','в Воронежской области'],
+    'astrakhan ' => ['Астраханская область','в Астраханской области']
+  ];
+
   if (isset($_GET['utm_medium'])) {
     $utm_medium = $_GET['utm_medium'];
   }
@@ -23,6 +37,13 @@ include ../node_modules/bemto.jade/bemto
   if (isset($_GET['utm_term'])) {
     $utm_term = $_GET['utm_term'];
   }
+
+  if ( isset($_GET['сity']) && array_key_exists($_GET['сity'], $cities) ) {
+    $сity = $_GET['сity'];
+  } else {
+    $сity = 'rostov';
+  }
+
 
   if (isset($_GET['utm_content'])) {
     $utm_content = $_GET['utm_content'];
@@ -68,17 +89,19 @@ body.page
           +b.logo
             +e.img
               img(src='img/logo.png')
+            |<?php if($сity == 'rostov'): ?>
             +e.text Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
+            |<?php endif;?>
         +b.col._lg_6._md_6._sm_6._xs_7
           +b.phone-grup 
-            +e.phone 8 (863) 303-38-33
+            +e.phone.primegate-phone 8 (863) 303-38-33
             +e.text Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
             +e.email info@bk-invent.ru
   .header
     .container
       .offer 
         .offer__text.start-animate
-          |Горизонтально направленное бурение <br> в Ростове-на-Дону
+          |Горизонтально направленное бурение <br> <?echo $cities[$сity][1]?>
         .offer__action.order.start-animate(style="animation-delay: .2s") Пригласить инженера на объект
 
 
@@ -92,14 +115,14 @@ body.page
             input(placeholder='Введите Ваш телефон' name='phone').input.input_type_phone
             input(placeholder='Диаметр трубы, мм.' name='c1').input.input_type_mini
             input(placeholder='Длина прокола, п.м.' name='c2').input.input_type_mini
-            input(type='hidden', name='url', value="<?echo $url?>")
-            input(type='hidden', name='utm', value="<?echo $utm?>")
-            input(type='hidden', name='utm_term', value="<?echo $utm_term?>")
-            input(type='hidden', name='utm_campaign', value="<?echo $utm_campaign?>")
-            input(type='hidden', name='utm_source', value="<?echo $utm_source?>")
-            input(type='hidden', name='utm_medium', value="<?echo $utm_medium?>")
-            input(type='hidden', name='utm_content', value="<?echo $utm_content?>")
-            input(type='hidden', name='order', value='Горизонтально направленное бурение')
+            input(type='hidden', name='url', value!="<?echo $url?>")
+            input(type='hidden', name='utm', value!="<?echo $utm?>")
+            input(type='hidden', name='utm_term', value!="<?echo $utm_term?>")
+            input(type='hidden', name='utm_campaign', value!="<?echo $utm_campaign?>")
+            input(type='hidden', name='utm_source', value!="<?echo $utm_source?>")
+            input(type='hidden', name='utm_medium', value!="<?echo $utm_medium?>")
+            input(type='hidden', name='utm_content', value!="<?echo $utm_content?>")
+            input(type='hidden', name='order', value!='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>')
             input(type='submit' value='Отправить').form__btn
 
   .container
@@ -183,14 +206,14 @@ body.page
               form.ajax
                 input(placeholder='Введите Ваше имя' name='name').input.input_type_name
                 input(placeholder='Введите Ваш телефон' name='phone').input.input_type_phone
-                input(type='hidden', name='url', value="<?echo $url?>")
-                input(type='hidden', name='utm', value="<?echo $utm?>")
-                input(type='hidden', name='utm_term', value="<?echo $utm_term?>")
-                input(type='hidden', name='utm_campaign', value="<?echo $utm_campaign?>")
-                input(type='hidden', name='utm_source', value="<?echo $utm_source?>")
-                input(type='hidden', name='utm_medium', value="<?echo $utm_medium?>")
-                input(type='hidden', name='utm_content', value="<?echo $utm_content?>")
-                input(type='hidden', name='order', value='Горизонтально направленное бурение. Выезд инженера')
+                input(type='hidden', name='url', value!="<?echo $url?>")
+                input(type='hidden', name='utm', value!="<?echo $utm?>")
+                input(type='hidden', name='utm_term', value!="<?echo $utm_term?>")
+                input(type='hidden', name='utm_campaign', value!="<?echo $utm_campaign?>")
+                input(type='hidden', name='utm_source', value!="<?echo $utm_source?>")
+                input(type='hidden', name='utm_medium', value!="<?echo $utm_medium?>")
+                input(type='hidden', name='utm_content', value!="<?echo $utm_content?>")
+                input(type='hidden', name='order', value!='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Выезд инженера')
                 input(type='submit' value='Отправить').form__btn
 
   
@@ -211,7 +234,58 @@ body.page
               | Технология ГНБ не требует привлечения большого количества техники, бригады. А установки могут работать автономно, что не требует дополнительного источника питания и т.д.
           p Таким образом, прокладывание коммуникаций методом ГНБ является современным высокотехнологичным методом, которое позволяет сократить как временные, так и финансовые издержки на строительство.
 
+  +b.gnb        
+    .title Производственные мощности
+      .container
+        .row
+          .col.col_lg_4.col_md_4.col_sm_6.col_xs_12
+            +e.item
+              +e(tag="img", src="img/gnb-1.jpg").img
+              +e.title 
+                |Установка горизонтально-направленного бурения
+                br
+                span TRACTO-TECHNIK GRUNDODRILL 20S
+              +e.text
+                span Технические возможности:
+                ul
+                  li Возможность проведения работ для грунтов 1,2,3,4 категории
+                  li Прокладка труб до Ø 720мм (ПНД) на длину до 400 м (в зависимости от типа почвы)
+                  li Установка самоходная, работает без приямка
+                  li Прокладка под магистралями, железными дорогами, стоянками, под реками, водоемами.
+                  li Использование бентонитов и полимеров для песчаных и суглинистых пород
+                  li Непрерывная автономная работа в любой местности. 
 
+              .btn(data-product="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. TRACTO-TECHNIK GRUNDODRILL 20S") Заказать
+          .col.col_lg_4.col_md_4.col_sm_6.col_xs_12
+            +e.item
+              +e(tag="img", src="img/gnb-2.jpg").img
+              +e.title 
+                |Установка управляемого прокола
+                br
+                span DITCH WITCH® P80
+              +e.text
+                span Технические возможности:
+                ul
+                  li Возможность прокладки  Ø110-160 мм – на расстояние до 150 м, Ø 315мм до 60м, дополнительные расширители позволяют проложить трубопровод Ø500 (расширители до Ø 620мм)
+                  li Данная установка работает управляемо из котлована в котлован. Пользуясь локацией, оператор всегда знает где, на какой глубине и в каком положении (на сколько часов повернута) находится буровая головка и при содействии оператора установки, работающего в котловане способен изменить траекторию ее движения.
+                  li Возможность прокладывания коммуникаций в стесненных условиях (под дорогой, под трамвайными путями, под железной дорогой) 
+                  li Непрерывная автономная работа
+              .btn(data-product="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. DITCH WITCH® P80") Заказать 
+          .col.col_lg_4.col_md_4.col_sm_6.col_xs_12
+            +e.item
+              +e(tag="img", src="img/gnb-3.jpg").img
+              +e.title 
+                |Установка для прокола
+                br
+                span УПГК-60У
+              +e.text
+                span Технические возможности:
+                ul
+                  li Возможность прокладки трубопровода для инженерных коммуникаций до Ø 400мм на расстояние до 150 м в грунтах 1-3 категории из колодца диаметров от 1м 
+                  li Установка применяется при строительстве и реконструкции трубопроводов в городских условиях, в стесненных условиях. 
+                  li Кроме протяжки новых трубопроводов, можно проводить санацию трубопровода из колодца, котлована, подвальных помещений.
+                  li Установка работает как от гидравлической станции, так и от гидросистемы строительной техники, с помощью блока согласования. Малый вес установки позволяет транспортировать ее в багажнике автомобиля. 
+              .btn(data-product="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. УПГК-60У") Заказать
 
   .title КАКИЕ УСЛУГИ ОКАЗЫВАЕМ?
   .container
@@ -223,7 +297,7 @@ body.page
                 .product__text
                     .product__title
                         | Прокладка водопровода
-                    .product__btn(data-product='Горизонтально направленное бурение. Прокладка водопровода')
+                    .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка водопровода')
                         | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -233,7 +307,7 @@ body.page
                   .product__title
                     | Прокладка газопровода
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка газопровода')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка газопровода')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -243,7 +317,7 @@ body.page
                   .product__title
                     | Прокладка линий электроснабжения
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка линий электроснабжения')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -253,7 +327,7 @@ body.page
                   .product__title
                     | Прокладка линий электроснабжения
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка линий электроснабжения')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка линий электроснабжения')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -263,7 +337,7 @@ body.page
                   .product__title
                     | Прокладка канализации
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка канализации')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка канализации')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -273,7 +347,7 @@ body.page
                   .product__title
                     | Прокладка трубопровода теплоснабжения
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка трубопровода теплоснабжения')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -283,7 +357,7 @@ body.page
                   .product__title
                     | Прокладка футляров при строительстве коммуникаций
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Прокладка футляров при строительстве коммуникаций')
                     | Заказать
       .col.col_lg_3.col_md_3.col_sm_6.col_xs_12
         .product
@@ -293,7 +367,7 @@ body.page
                   .product__title
                     | Формирование пакета документов для сдачи объекта
                   .product__price.product__price_old.
-                  .product__btn(data-product='Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта')
+                  .product__btn(data-product='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Формирование пакета документов для сдачи объекта')
                     | Заказать
 
 
@@ -364,19 +438,32 @@ body.page
     .questions__title Бесплатная консультация эксперта по ГНБ
     div(style="max-width: 800px; margin: auto") Оставьте заявку и наш эксперт свяжется с вами, и расскажет про все преимущества метода горизонтально направленного бурения применительно к решению вашей задачи!
   .btn.order Получить бесплатную консультацию
+  |<?php if($сity == 'rostov'): ?>
   .map#map
+  |<?php endif;?>
   .footer
     .container
+      |<?php if($сity == 'rostov'): ?>
       .row
         +b.col_sm_4
           .footer__contact.footer__contact_type_adress Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
         +b.col_sm_4
           .footer__contact.footer__contact_type_call
             +b.phone-grup._footer 
-              +e.phone 8 (863) 303-38-33
+              +e.phone.primegate-phone 8 (863) 303-38-33
               +e.text Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
         +b.col_sm_4
           .footer__contact.footer__contact_type_mail order@bk-invent.ru
+      |<?php else:?>
+      .row
+        +b.col_sm_6
+          .footer__contact.footer__contact_type_call
+            +b.phone-grup._footer 
+              +e.phone.primegate-phone 8 (863) 303-38-33
+              +e.text Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
+        +b.col_sm_6
+            .footer__contact.footer__contact_type_mail order@bk-invent.ru
+      |<?php endif;?>
   #modal__product.modal
     .modal__wrapper
       .modal__dialog
@@ -387,14 +474,14 @@ body.page
             input(placeholder='Введите Ваше имя' name='name').input.input_type_name
             input(placeholder='Введите Ваш телефон' name='phone').input.input_type_phone
             input(placeholder='Введите Ваш E-mail' name='email').input.input_type_email
-            input(type='hidden', name='url', value="<?echo $url?>")
-            input(type='hidden', name='utm', value="<?echo $utm?>")
-            input(type='hidden', name='utm_term', value="<?echo $utm_term?>")
-            input(type='hidden', name='utm_campaign', value="<?echo $utm_campaign?>")
-            input(type='hidden', name='utm_source', value="<?echo $utm_source?>")
-            input(type='hidden', name='utm_medium', value="<?echo $utm_medium?>")
-            input(type='hidden', name='utm_content', value="<?echo $utm_content?>")
-            input#product-input(type='hidden', name='order', value='Горизонтально направленное бурение')
+            input(type='hidden', name='url', value!="<?echo $url?>")
+            input(type='hidden', name='utm', value!="<?echo $utm?>")
+            input(type='hidden', name='utm_term', value!="<?echo $utm_term?>")
+            input(type='hidden', name='utm_campaign', value!="<?echo $utm_campaign?>")
+            input(type='hidden', name='utm_source', value!="<?echo $utm_source?>")
+            input(type='hidden', name='utm_medium', value!="<?echo $utm_medium?>")
+            input(type='hidden', name='utm_content', value!="<?echo $utm_content?>")
+            input#product-input(type='hidden', name='order', value!='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>')
             input.form__btn(type='submit', value='Заказать')
 
   .modal#modal__order
@@ -407,14 +494,14 @@ body.page
                 input(placeholder='Введите Ваше имя' name='name').input.input_type_name
                 input(placeholder='Введите Ваш телефон' name='phone').input.input_type_phone
                 input(placeholder='Введите Ваш E-mail' name='email').input.input_type_email
-                input(type='hidden', name='url', value="<?echo $url?>")
-                input(type='hidden', name='utm', value="<?echo $utm?>")
-                input(type='hidden', name='utm_term', value="<?echo $utm_term?>")
-                input(type='hidden', name='utm_campaign', value="<?echo $utm_campaign?>")
-                input(type='hidden', name='utm_source', value="<?echo $utm_source?>")
-                input(type='hidden', name='utm_medium', value="<?echo $utm_medium?>")
-                input(type='hidden', name='utm_content', value="<?echo $utm_content?>")
-                input(type='hidden', name='order', value='Горизонтально направленное бурение. Консультация')
+                input(type='hidden', name='url', value!="<?echo $url?>")
+                input(type='hidden', name='utm', value!="<?echo $utm?>")
+                input(type='hidden', name='utm_term', value!="<?echo $utm_term?>")
+                input(type='hidden', name='utm_campaign', value!="<?echo $utm_campaign?>")
+                input(type='hidden', name='utm_source', value!="<?echo $utm_source?>")
+                input(type='hidden', name='utm_medium', value!="<?echo $utm_medium?>")
+                input(type='hidden', name='utm_content', value!="<?echo $utm_content?>")
+                input(type='hidden', name='order', value!='Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Консультация')
                 input(type='submit' value='Отправить').form__btn
 
   .modal#modal__ok
@@ -429,6 +516,23 @@ body.page
             .close.modal__close
             img(src="")#zoom__img
 
+
+  script.
+    (function () {
+        var pg = document.createElement('script');
+        var protocol = 'https:' == document.location.protocol ? 'https://' : 'http://';
+        pg.src = protocol + 'js.primegate.ru/primegate.min.js'; pg.setAttribute('async', 'true');
+        document.documentElement.getElementsByTagName('head')[0].appendChild(pg);
+        PrimeGate = {}; window.pg = []; components = ['init', 'track', 'identify'];
+        for (var i in components) {
+            PrimeGate[components[i]] = (function(component) {
+                return function () {
+                    window.pg.push(component, [].slice.call(arguments, 0));
+                }
+            }(components[i]));
+        }
+    })();
+    PrimeGate.init(1548413692);
   script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
   //build:js js/all.js
   script(src="node_modules/jquery/dist/jquery.min.js")

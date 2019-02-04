@@ -8,6 +8,20 @@ $utm_campaign = '-';
 $utm_term = '-';
 $utm_content = '-';
 
+$cities = [
+  'rostov' => ['Ростовская область','в Ростовской области'],
+  'stavropol' => ['Ставропольский край','в Ставропольском крае'],
+  'krasnodar' => ['Краснодарский край','в Краснодарском крае'],
+  'crimea' => ['Крым','в Крыму'],
+  'adygeya' => ['республика Адыгея','в республике Адыгея'],
+  'karachaycherkess' => ['республика Карачаево-Черкесская','в республике Карачаево-Черкесская'],
+  'kabardinobalkarian' => ['республика Кабардино-Балкарская','в республике Кабардино-Балкарская'],
+  'kalmykia' => ['республика Калмыкия','в республике Калмыкия'],
+  'volgograd' => ['Волгоградская область','в Волгоградской области'],
+  'voronezh ' => ['Воронежская область','в Воронежской области'],
+  'astrakhan ' => ['Астраханская область','в Астраханской области']
+];
+
 if (isset($_GET['utm_medium'])) {
   $utm_medium = $_GET['utm_medium'];
 }
@@ -23,6 +37,13 @@ if (isset($_GET['utm_campaign'])) {
 if (isset($_GET['utm_term'])) {
   $utm_term = $_GET['utm_term'];
 }
+
+if ( isset($_GET['сity']) && array_key_exists($_GET['сity'], $cities) ) {
+  $сity = $_GET['сity'];
+} else {
+  $сity = 'rostov';
+}
+
 
 if (isset($_GET['utm_content'])) {
   $utm_content = $_GET['utm_content'];
@@ -66,14 +87,14 @@ $utm =  $_SERVER["QUERY_STRING"];
         <div class="col col_lg_6 col_md_6 col_sm_6 col_xs_5">
           <div class="logo">
             <div class="logo__img"><img src="img/logo.png"/>
-            </div>
+            </div><?php if($сity == 'rostov'): ?>
             <div class="logo__text">Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
-            </div>
+            </div><?php endif;?>
           </div>
         </div>
         <div class="col col_lg_6 col_md_6 col_sm_6 col_xs_7">
           <div class="phone-grup"> 
-            <div class="phone-grup__phone">8 (863) 303-38-33
+            <div class="phone-grup__phone primegate-phone">8 (863) 303-38-33
             </div>
             <div class="phone-grup__text">Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
             </div>
@@ -87,7 +108,7 @@ $utm =  $_SERVER["QUERY_STRING"];
   <div class="header">
     <div class="container">
       <div class="offer"> 
-        <div class="offer__text start-animate">Горизонтально направленное бурение <br> в Ростове-на-Дону</div>
+        <div class="offer__text start-animate">Горизонтально направленное бурение <br> <?echo $cities[$сity][1]?></div>
         <div style="animation-delay: .2s" class="offer__action order start-animate">Пригласить инженера на объект</div>
       </div>
     </div>
@@ -104,14 +125,14 @@ $utm =  $_SERVER["QUERY_STRING"];
           <input placeholder="Введите Ваш телефон" name="phone" class="input input_type_phone"/>
           <input placeholder="Диаметр трубы, мм." name="c1" class="input input_type_mini"/>
           <input placeholder="Длина прокола, п.м." name="c2" class="input input_type_mini"/>
-          <input type="hidden" name="url" value="&lt;?echo $url?&gt;"/>
-          <input type="hidden" name="utm" value="&lt;?echo $utm?&gt;"/>
-          <input type="hidden" name="utm_term" value="&lt;?echo $utm_term?&gt;"/>
-          <input type="hidden" name="utm_campaign" value="&lt;?echo $utm_campaign?&gt;"/>
-          <input type="hidden" name="utm_source" value="&lt;?echo $utm_source?&gt;"/>
-          <input type="hidden" name="utm_medium" value="&lt;?echo $utm_medium?&gt;"/>
-          <input type="hidden" name="utm_content" value="&lt;?echo $utm_content?&gt;"/>
-          <input type="hidden" name="order" value="Горизонтально направленное бурение"/>
+          <input type="hidden" name="url" value="<?echo $url?>"/>
+          <input type="hidden" name="utm" value="<?echo $utm?>"/>
+          <input type="hidden" name="utm_term" value="<?echo $utm_term?>"/>
+          <input type="hidden" name="utm_campaign" value="<?echo $utm_campaign?>"/>
+          <input type="hidden" name="utm_source" value="<?echo $utm_source?>"/>
+          <input type="hidden" name="utm_medium" value="<?echo $utm_medium?>"/>
+          <input type="hidden" name="utm_content" value="<?echo $utm_content?>"/>
+          <input type="hidden" name="order" value="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>"/>
           <input type="submit" value="Отправить" class="form__btn"/>
         </form>
       </div>
@@ -180,14 +201,14 @@ $utm =  $_SERVER["QUERY_STRING"];
               <form class="ajax">
                 <input placeholder="Введите Ваше имя" name="name" class="input input_type_name"/>
                 <input placeholder="Введите Ваш телефон" name="phone" class="input input_type_phone"/>
-                <input type="hidden" name="url" value="&lt;?echo $url?&gt;"/>
-                <input type="hidden" name="utm" value="&lt;?echo $utm?&gt;"/>
-                <input type="hidden" name="utm_term" value="&lt;?echo $utm_term?&gt;"/>
-                <input type="hidden" name="utm_campaign" value="&lt;?echo $utm_campaign?&gt;"/>
-                <input type="hidden" name="utm_source" value="&lt;?echo $utm_source?&gt;"/>
-                <input type="hidden" name="utm_medium" value="&lt;?echo $utm_medium?&gt;"/>
-                <input type="hidden" name="utm_content" value="&lt;?echo $utm_content?&gt;"/>
-                <input type="hidden" name="order" value="Горизонтально направленное бурение. Выезд инженера"/>
+                <input type="hidden" name="url" value="<?echo $url?>"/>
+                <input type="hidden" name="utm" value="<?echo $utm?>"/>
+                <input type="hidden" name="utm_term" value="<?echo $utm_term?>"/>
+                <input type="hidden" name="utm_campaign" value="<?echo $utm_campaign?>"/>
+                <input type="hidden" name="utm_source" value="<?echo $utm_source?>"/>
+                <input type="hidden" name="utm_medium" value="<?echo $utm_medium?>"/>
+                <input type="hidden" name="utm_content" value="<?echo $utm_content?>"/>
+                <input type="hidden" name="order" value="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Выезд инженера"/>
                 <input type="submit" value="Отправить" class="form__btn"/>
               </form>
             </div>
@@ -214,6 +235,67 @@ $utm =  $_SERVER["QUERY_STRING"];
       </div>
     </div>
   </div>
+  <div class="gnb">       
+    <div class="title">Производственные мощности
+      <div class="container">
+        <div class="row">
+          <div class="col col_lg_4 col_md_4 col_sm_6 col_xs_12">
+            <div class="gnb__item"><img tag="img" src="img/gnb-1.jpg" class="gnb__img" alt="" role="presentation"/>
+              <div class="gnb__title">
+                 
+                Установка горизонтально-направленного бурения<br/><span>TRACTO-TECHNIK GRUNDODRILL 20S</span>
+              </div>
+              <div class="gnb__text"><span>Технические возможности:</span>
+                <ul>
+                  <li>Возможность проведения работ для грунтов 1,2,3,4 категории</li>
+                  <li>Прокладка труб до Ø 720мм (ПНД) на длину до 400 м (в зависимости от типа почвы)</li>
+                  <li>Установка самоходная, работает без приямка</li>
+                  <li>Прокладка под магистралями, железными дорогами, стоянками, под реками, водоемами.</li>
+                  <li>Использование бентонитов и полимеров для песчаных и суглинистых пород</li>
+                  <li>Непрерывная автономная работа в любой местности. </li>
+                </ul>
+              </div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. TRACTO-TECHNIK GRUNDODRILL 20S" class="btn">Заказать</div>
+            </div>
+          </div>
+          <div class="col col_lg_4 col_md_4 col_sm_6 col_xs_12">
+            <div class="gnb__item"><img tag="img" src="img/gnb-2.jpg" class="gnb__img" alt="" role="presentation"/>
+              <div class="gnb__title">
+                 
+                Установка управляемого прокола<br/><span>DITCH WITCH® P80</span>
+              </div>
+              <div class="gnb__text"><span>Технические возможности:</span>
+                <ul>
+                  <li>Возможность прокладки  Ø110-160 мм – на расстояние до 150 м, Ø 315мм до 60м, дополнительные расширители позволяют проложить трубопровод Ø500 (расширители до Ø 620мм)</li>
+                  <li>Данная установка работает управляемо из котлована в котлован. Пользуясь локацией, оператор всегда знает где, на какой глубине и в каком положении (на сколько часов повернута) находится буровая головка и при содействии оператора установки, работающего в котловане способен изменить траекторию ее движения.</li>
+                  <li>Возможность прокладывания коммуникаций в стесненных условиях (под дорогой, под трамвайными путями, под железной дорогой) </li>
+                  <li>Непрерывная автономная работа</li>
+                </ul>
+              </div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. DITCH WITCH® P80" class="btn">Заказать </div>
+            </div>
+          </div>
+          <div class="col col_lg_4 col_md_4 col_sm_6 col_xs_12">
+            <div class="gnb__item"><img tag="img" src="img/gnb-3.jpg" class="gnb__img" alt="" role="presentation"/>
+              <div class="gnb__title">
+                 
+                Установка для прокола<br/><span>УПГК-60У</span>
+              </div>
+              <div class="gnb__text"><span>Технические возможности:</span>
+                <ul>
+                  <li>Возможность прокладки трубопровода для инженерных коммуникаций до Ø 400мм на расстояние до 150 м в грунтах 1-3 категории из колодца диаметров от 1м </li>
+                  <li>Установка применяется при строительстве и реконструкции трубопроводов в городских условиях, в стесненных условиях. </li>
+                  <li>Кроме протяжки новых трубопроводов, можно проводить санацию трубопровода из колодца, котлована, подвальных помещений.</li>
+                  <li>Установка работает как от гидравлической станции, так и от гидросистемы строительной техники, с помощью блока согласования. Малый вес установки позволяет транспортировать ее в багажнике автомобиля. </li>
+                </ul>
+              </div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. УПГК-60У" class="btn">Заказать</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="title">КАКИЕ УСЛУГИ ОКАЗЫВАЕМ?</div>
   <div class="container">
     <div class="row">
@@ -222,7 +304,7 @@ $utm =  $_SERVER["QUERY_STRING"];
           <div class="product__bg">
             <div class="product__text">
               <div class="product__title">Прокладка водопровода</div>
-              <div data-product="Горизонтально направленное бурение. Прокладка водопровода" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка водопровода" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -233,7 +315,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка газопровода</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка газопровода" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка газопровода" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -244,7 +326,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка линий электроснабжения</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -255,7 +337,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка линий электроснабжения</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка линий электроснабжения" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -266,7 +348,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка канализации</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка канализации" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка канализации" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -277,7 +359,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка трубопровода теплоснабжения</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка трубопровода теплоснабжения" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка трубопровода теплоснабжения" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -288,7 +370,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Прокладка футляров при строительстве коммуникаций</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Прокладка футляров при строительстве коммуникаций" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Прокладка футляров при строительстве коммуникаций" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -299,7 +381,7 @@ $utm =  $_SERVER["QUERY_STRING"];
             <div class="product__text">
               <div class="product__title">Формирование пакета документов для сдачи объекта</div>
               <div class="product__price product__price_old"></div>
-              <div data-product="Горизонтально направленное бурение. Формирование пакета документов для сдачи объекта" class="product__btn">Заказать</div>
+              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Формирование пакета документов для сдачи объекта" class="product__btn">Заказать</div>
             </div>
           </div>
         </div>
@@ -387,10 +469,10 @@ $utm =  $_SERVER["QUERY_STRING"];
     <div class="questions__title">Бесплатная консультация эксперта по ГНБ</div>
     <div style="max-width: 800px; margin: auto">Оставьте заявку и наш эксперт свяжется с вами, и расскажет про все преимущества метода горизонтально направленного бурения применительно к решению вашей задачи!</div>
   </div>
-  <div class="btn order">Получить бесплатную консультацию</div>
-  <div id="map" class="map"></div>
+  <div class="btn order">Получить бесплатную консультацию</div><?php if($сity == 'rostov'): ?>
+  <div id="map" class="map"></div><?php endif;?>
   <div class="footer">
-    <div class="container">
+    <div class="container"><?php if($сity == 'rostov'): ?>
       <div class="row">
         <div class="col col_sm_4">
           <div class="footer__contact footer__contact_type_adress">Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3</div>
@@ -398,7 +480,7 @@ $utm =  $_SERVER["QUERY_STRING"];
         <div class="col col_sm_4">
           <div class="footer__contact footer__contact_type_call">
             <div class="phone-grup phone-grup_footer"> 
-              <div class="phone-grup__phone">8 (863) 303-38-33
+              <div class="phone-grup__phone primegate-phone">8 (863) 303-38-33
               </div>
               <div class="phone-grup__text">Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
               </div>
@@ -408,7 +490,22 @@ $utm =  $_SERVER["QUERY_STRING"];
         <div class="col col_sm_4">
           <div class="footer__contact footer__contact_type_mail">order@bk-invent.ru</div>
         </div>
-      </div>
+      </div><?php else:?>
+      <div class="row">
+        <div class="col col_sm_6">
+          <div class="footer__contact footer__contact_type_call">
+            <div class="phone-grup phone-grup_footer"> 
+              <div class="phone-grup__phone primegate-phone">8 (863) 303-38-33
+              </div>
+              <div class="phone-grup__text">Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col_sm_6">
+          <div class="footer__contact footer__contact_type_mail">order@bk-invent.ru</div>
+        </div>
+      </div><?php endif;?>
     </div>
   </div>
   <div id="modal__product" class="modal">
@@ -421,14 +518,14 @@ $utm =  $_SERVER["QUERY_STRING"];
             <input placeholder="Введите Ваше имя" name="name" class="input input_type_name"/>
             <input placeholder="Введите Ваш телефон" name="phone" class="input input_type_phone"/>
             <input placeholder="Введите Ваш E-mail" name="email" class="input input_type_email"/>
-            <input type="hidden" name="url" value="&lt;?echo $url?&gt;"/>
-            <input type="hidden" name="utm" value="&lt;?echo $utm?&gt;"/>
-            <input type="hidden" name="utm_term" value="&lt;?echo $utm_term?&gt;"/>
-            <input type="hidden" name="utm_campaign" value="&lt;?echo $utm_campaign?&gt;"/>
-            <input type="hidden" name="utm_source" value="&lt;?echo $utm_source?&gt;"/>
-            <input type="hidden" name="utm_medium" value="&lt;?echo $utm_medium?&gt;"/>
-            <input type="hidden" name="utm_content" value="&lt;?echo $utm_content?&gt;"/>
-            <input id="product-input" type="hidden" name="order" value="Горизонтально направленное бурение"/>
+            <input type="hidden" name="url" value="<?echo $url?>"/>
+            <input type="hidden" name="utm" value="<?echo $utm?>"/>
+            <input type="hidden" name="utm_term" value="<?echo $utm_term?>"/>
+            <input type="hidden" name="utm_campaign" value="<?echo $utm_campaign?>"/>
+            <input type="hidden" name="utm_source" value="<?echo $utm_source?>"/>
+            <input type="hidden" name="utm_medium" value="<?echo $utm_medium?>"/>
+            <input type="hidden" name="utm_content" value="<?echo $utm_content?>"/>
+            <input id="product-input" type="hidden" name="order" value="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>"/>
             <input type="submit" value="Заказать" class="form__btn"/>
           </form>
         </div>
@@ -445,14 +542,14 @@ $utm =  $_SERVER["QUERY_STRING"];
             <input placeholder="Введите Ваше имя" name="name" class="input input_type_name"/>
             <input placeholder="Введите Ваш телефон" name="phone" class="input input_type_phone"/>
             <input placeholder="Введите Ваш E-mail" name="email" class="input input_type_email"/>
-            <input type="hidden" name="url" value="&lt;?echo $url?&gt;"/>
-            <input type="hidden" name="utm" value="&lt;?echo $utm?&gt;"/>
-            <input type="hidden" name="utm_term" value="&lt;?echo $utm_term?&gt;"/>
-            <input type="hidden" name="utm_campaign" value="&lt;?echo $utm_campaign?&gt;"/>
-            <input type="hidden" name="utm_source" value="&lt;?echo $utm_source?&gt;"/>
-            <input type="hidden" name="utm_medium" value="&lt;?echo $utm_medium?&gt;"/>
-            <input type="hidden" name="utm_content" value="&lt;?echo $utm_content?&gt;"/>
-            <input type="hidden" name="order" value="Горизонтально направленное бурение. Консультация"/>
+            <input type="hidden" name="url" value="<?echo $url?>"/>
+            <input type="hidden" name="utm" value="<?echo $utm?>"/>
+            <input type="hidden" name="utm_term" value="<?echo $utm_term?>"/>
+            <input type="hidden" name="utm_campaign" value="<?echo $utm_campaign?>"/>
+            <input type="hidden" name="utm_source" value="<?echo $utm_source?>"/>
+            <input type="hidden" name="utm_medium" value="<?echo $utm_medium?>"/>
+            <input type="hidden" name="utm_content" value="<?echo $utm_content?>"/>
+            <input type="hidden" name="order" value="Горизонтально направленное бурение. <?echo $cities[$сity][0]?>. Консультация"/>
             <input type="submit" value="Отправить" class="form__btn"/>
           </form>
         </div>
@@ -474,6 +571,23 @@ $utm =  $_SERVER["QUERY_STRING"];
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+        var pg = document.createElement('script');
+        var protocol = 'https:' == document.location.protocol ? 'https://' : 'http://';
+        pg.src = protocol + 'js.primegate.ru/primegate.min.js'; pg.setAttribute('async', 'true');
+        document.documentElement.getElementsByTagName('head')[0].appendChild(pg);
+        PrimeGate = {}; window.pg = []; components = ['init', 'track', 'identify'];
+        for (var i in components) {
+            PrimeGate[components[i]] = (function(component) {
+                return function () {
+                    window.pg.push(component, [].slice.call(arguments, 0));
+                }
+            }(components[i]));
+        }
+    })();
+    PrimeGate.init(1548413692);
+  </script>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   <!--build:js js/all.js-->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
