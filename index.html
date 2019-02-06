@@ -176,7 +176,7 @@ $utm =  $_SERVER["QUERY_STRING"];
       </div>
     </div>
   </div>
-  
+  <?php if($сity == 'rostov'): ?>
   <div class="stock">
     <div class="container">
       <div class="row">
@@ -216,7 +216,7 @@ $utm =  $_SERVER["QUERY_STRING"];
         </div>
       </div>
     </div>
-  </div>
+  </div><?php endif;?>
   <div class="info">
     <div class="info__container">
       <div class="info__icon">
@@ -256,7 +256,9 @@ $utm =  $_SERVER["QUERY_STRING"];
                   <li>Непрерывная автономная работа в любой местности. </li>
                 </ul>
               </div>
-              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. TRACTO-TECHNIK GRUNDODRILL 20S" class="btn">Заказать</div>
+              <div class="gnb__btn-wraper">
+                <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Просчитать проект. TRACTO-TECHNIK GRUNDODRILL 20S" class="btn">Просчитать проект</div>
+              </div>
             </div>
           </div>
           <div class="col col_lg_4 col_md_4 col_sm_6 col_xs_12">
@@ -274,7 +276,9 @@ $utm =  $_SERVER["QUERY_STRING"];
                   <li>Непрерывная автономная работа</li>
                 </ul>
               </div>
-              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. DITCH WITCH P80" class="btn">Заказать </div>
+              <div class="gnb__btn-wraper">
+                <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Просчитать проект. DITCH WITCH P80" class="btn">Просчитать проект </div>
+              </div>
             </div>
           </div>
           <div class="col col_lg_4 col_md_4 col_sm_6 col_xs_12">
@@ -292,7 +296,9 @@ $utm =  $_SERVER["QUERY_STRING"];
                   <li>Установка работает как от гидравлической станции, так и от гидросистемы строительной техники, с помощью блока согласования. Малый вес установки позволяет транспортировать ее в багажнике автомобиля. </li>
                 </ul>
               </div>
-              <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. УПГК-60У" class="btn">Заказать</div>
+              <div class="gnb__btn-wraper">
+                <div data-product="Горизонтально направленное бурение. &lt;?echo $cities[$сity][0]?&gt;. Просчитать проект. УПГК-60У" class="btn">Просчитать проект</div>
+              </div>
             </div>
           </div>
         </div>
