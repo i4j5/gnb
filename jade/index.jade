@@ -9,17 +9,17 @@ include ../node_modules/bemto.jade/bemto
   $utm_content = '-';
 
   $cities = [
-    'rostov' => ['Ростовская область','в Ростовской области'],
+    'rostov' => ['Ростовская область','в Ростове-на-Дону и Ростовской области'],
     'stavropol' => ['Ставропольский край','в Ставропольском крае'],
     'krasnodar' => ['Краснодарский край','в Краснодарском крае'],
-    'crimea' => ['Крым','в Крыму'],
+    'crimea' => ['Крым','в республике Крыму'],
     'adygeya' => ['республика Адыгея','в республике Адыгея'],
-    'karachaycherkess' => ['республика Карачаево-Черкесская','в республике Карачаево-Черкесская'],
-    'kabardinobalkarian' => ['республика Кабардино-Балкарская','в республике Кабардино-Балкарская'],
+    'karachaycherkess' => ['республика Карачаево-Черкесская','в Карачаево-Черкесской республике'],
+    'kabardinobalkarian' => ['республика Кабардино-Балкарская','в Кабардино-Балкарской республике'],
     'kalmykia' => ['республика Калмыкия','в республике Калмыкия'],
     'volgograd' => ['Волгоградская область','в Волгоградской области'],
-    'voronezh ' => ['Воронежская область','в Воронежской области'],
-    'astrakhan ' => ['Астраханская область','в Астраханской области']
+    'voronezh' => ['Воронежская область','в Воронежской области'],
+    'astrakhan' => ['Астраханская область','в Астраханской области']
   ];
 
   if (isset($_GET['utm_medium'])) {
@@ -90,7 +90,7 @@ body.page
             +e.img
               img(src='img/logo.png')
             |<?php if($сity == 'rostov'): ?>
-            +e.text Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
+            +e.text Ростов-на-Дону,<br>ул. Текучева, 23, эт. 3
             |<?php endif;?>
         +b.col._lg_6._md_6._sm_6._xs_7
           +b.phone-grup 
@@ -147,7 +147,7 @@ body.page
         +b.col._lg_3._md_3._sm_6._xs_12
           .triggers__items
           img(src='img/triggers__img12.png').triggers__img
-          .triggers__text Без выхода на поверхность<br>до 300 м
+          .triggers__text Без выхода на поверхность<br>до 400 м
         +b.col._lg_3._md_3._sm_6._xs_12
           .triggers__items
           img(src='img/triggers__img3.png').triggers__img
@@ -448,7 +448,7 @@ body.page
       |<?php if($сity == 'rostov'): ?>
       .row
         +b.col_sm_4
-          .footer__contact.footer__contact_type_adress Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
+          .footer__contact.footer__contact_type_adress Ростов-на-Дону,<br>ул. Текучева, 23, эт. 3
         +b.col_sm_4
           .footer__contact.footer__contact_type_call
             +b.phone-grup._footer 
@@ -464,7 +464,7 @@ body.page
               +e.phone.primegate-phone 8 (863) 303-38-33
               +e.text Пн.- пт. с 9:00 до 18:00<br>Сб. с 10:00 до 16:00
         +b.col_sm_6
-            .footer__contact.footer__contact_type_mail order@bk-invent.ru
+            .footer__contact.footer__contact_type_mail info@bk-invent.ru
       |<?php endif;?>
   #modal__product.modal
     .modal__wrapper
