@@ -9,17 +9,17 @@ $utm_term = '-';
 $utm_content = '-';
 
 $cities = [
-  'rostov' => ['Ростовская область','в Ростовской области'],
+  'rostov' => ['Ростовская область','в Ростове-на-Дону и Ростовской области'],
   'stavropol' => ['Ставропольский край','в Ставропольском крае'],
   'krasnodar' => ['Краснодарский край','в Краснодарском крае'],
-  'crimea' => ['Крым','в Крыму'],
+  'crimea' => ['Крым','в республике Крыму'],
   'adygeya' => ['республика Адыгея','в республике Адыгея'],
-  'karachaycherkess' => ['республика Карачаево-Черкесская','в республике Карачаево-Черкесская'],
-  'kabardinobalkarian' => ['республика Кабардино-Балкарская','в республике Кабардино-Балкарская'],
+  'karachaycherkess' => ['республика Карачаево-Черкесская','в Карачаево-Черкесской республике'],
+  'kabardinobalkarian' => ['республика Кабардино-Балкарская','в Кабардино-Балкарской республике'],
   'kalmykia' => ['республика Калмыкия','в республике Калмыкия'],
   'volgograd' => ['Волгоградская область','в Волгоградской области'],
-  'voronezh ' => ['Воронежская область','в Воронежской области'],
-  'astrakhan ' => ['Астраханская область','в Астраханской области']
+  'voronezh' => ['Воронежская область','в Воронежской области'],
+  'astrakhan' => ['Астраханская область','в Астраханской области']
 ];
 
 if (isset($_GET['utm_medium'])) {
@@ -88,7 +88,7 @@ $utm =  $_SERVER["QUERY_STRING"];
           <div class="logo">
             <div class="logo__img"><img src="img/logo.png"/>
             </div><?php if($сity == 'rostov'): ?>
-            <div class="logo__text">Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3
+            <div class="logo__text">Ростов-на-Дону,<br>ул. Текучева, 23, эт. 3
             </div><?php endif;?>
           </div>
         </div>
@@ -159,7 +159,7 @@ $utm =  $_SERVER["QUERY_STRING"];
         </div>
         <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
           <div class="triggers__items"></div><img src="img/triggers__img12.png" class="triggers__img"/>
-          <div class="triggers__text">Без выхода на поверхность<br>до 300 м</div>
+          <div class="triggers__text">Без выхода на поверхность<br>до 400 м</div>
         </div>
         <div class="col col_lg_3 col_md_3 col_sm_6 col_xs_12">
           <div class="triggers__items"></div><img src="img/triggers__img3.png" class="triggers__img"/>
@@ -484,7 +484,7 @@ $utm =  $_SERVER["QUERY_STRING"];
     <div class="container"><?php if($сity == 'rostov'): ?>
       <div class="row">
         <div class="col col_sm_4">
-          <div class="footer__contact footer__contact_type_adress">Ростове-на-Дону,<br>ул. Текучева, 23, эт. 3</div>
+          <div class="footer__contact footer__contact_type_adress">Ростов-на-Дону,<br>ул. Текучева, 23, эт. 3</div>
         </div>
         <div class="col col_sm_4">
           <div class="footer__contact footer__contact_type_call">
@@ -512,7 +512,7 @@ $utm =  $_SERVER["QUERY_STRING"];
           </div>
         </div>
         <div class="col col_sm_6">
-          <div class="footer__contact footer__contact_type_mail">order@bk-invent.ru</div>
+          <div class="footer__contact footer__contact_type_mail">info@bk-invent.ru</div>
         </div>
       </div><?php endif;?>
     </div>
