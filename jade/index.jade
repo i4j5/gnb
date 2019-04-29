@@ -102,6 +102,9 @@ body.page
       .offer 
         .offer__text.start-animate
           |Горизонтально направленное бурение <br> <?echo $cities[$сity][1]?>
+          |<?php if($сity != 'rostov'): ?>
+          |<br><i>Работаем от объема не менее 50 метров</i>
+          |<?php endif;?>
         .offer__action.order.start-animate(style="animation-delay: .2s") Пригласить инженера на объект
 
 

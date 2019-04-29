@@ -12,7 +12,7 @@ $cities = [
   'rostov' => ['Ростовская область','в Ростове-на-Дону и Ростовской области'],
   'stavropol' => ['Ставропольский край','в Ставропольском крае'],
   'krasnodar' => ['Краснодарский край','в Краснодарском крае'],
-  'crimea' => ['Крым','в республике Крыму'],
+  'crimea' => ['Крым','в республике Крым'],
   'adygeya' => ['республика Адыгея','в республике Адыгея'],
   'karachaycherkess' => ['республика Карачаево-Черкесская','в Карачаево-Черкесской республике'],
   'kabardinobalkarian' => ['республика Кабардино-Балкарская','в Кабардино-Балкарской республике'],
@@ -108,7 +108,12 @@ $utm =  $_SERVER["QUERY_STRING"];
   <div class="header">
     <div class="container">
       <div class="offer"> 
-        <div class="offer__text start-animate">Горизонтально направленное бурение <br> <?echo $cities[$сity][1]?></div>
+        <div class="offer__text start-animate">
+          Горизонтально направленное бурение <br> <?echo $cities[$сity][1]?>
+          <?php if($сity != 'rostov'): ?>
+          <br><i>Работаем от объема не менее 50 метров</i>
+          <?php endif;?>
+        </div>
         <div style="animation-delay: .2s" class="offer__action order start-animate">Пригласить инженера на объект</div>
       </div>
     </div>
